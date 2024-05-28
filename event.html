@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <style>
+        body{
+            background-color: lightgray;
+        }
+        #bulb{
+            height: 200px;
+            width: 200px;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            background-color: black;
+            margin: 100px auto;
+            box-shadow: 0px 0px 5px gray;
+        }
+        #box{
+            height: 600px;
+            width: 100%;
+            border: 1px solid transparent;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .box1{
+            height: 600px;
+            width: 100%;
+            border: 1px solid transparent;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <h1>EVENT-1</h1>
+    <p id="bulb"></p>
+    <button onclick="getOn()">ON</button>
+    <button onclick="getOff()">OFF</button>
+    <hr>
+    <h1>EVENT-2</h1>
+    <p id="print"></p>
+    <button class="number" onclick="getOne()">1</button>
+    <button class="number" onclick="getTwo()">2</button>
+    <button class="number" onclick="getThree()">3</button>
+    <button class="number" onclick="getFour()">4</button>
+    <button class="number" onclick="getFive()">5</button>
+    <hr>
+    <h1>EVENT-3</h1>
+    <form action="" onsubmit="getSubmit()">
+        <label for="inp1" >Name:</label>
+        <input type="text" name="" id="inp1">
+        <br>
+        <label for="inp2">Email:</label>
+        <input type="email" name="" id="inp2">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <hr>
+    <h1>EVENT-4</h1>
+    <div id="box" onmouseover="getOver()" onmouseout="getOut()"></div>
+    <hr>
+    <h1>EVENT-5</h1>
+    <div class="box1" onmouseover="getUp()" onmouseout="getDown()"></div>
+    <hr>
+    <h1>EVENT-6</h1>
+    <input type="text" name="" id="input1" onblur="getBlur()">
+    <hr>
+    <h1>EVENT-7</h1>
+    <input type="text" name="" id="input2"onfocus="getFocus()">
+    <hr>
+    <h1>EVENT-8</h1>
+    <p id="para "oncopy="getCopy()">Copy this text!!!</p>
+    <hr>
+
+    <script>
+        //EVENT-1
+        let ele=document.getElementById("bulb")
+        function getOn (){
+            ele.style.backgroundColor=prompt("Color name")
+        }
+        function getOff (){
+            ele.style.backgroundColor="white"
+        }
+
+        //EVENT-2
+        let num=document.getElementById("print")
+        function getOne(params) {
+            num.innerHTML="1"
+        }
+        function getTwo(params) {
+            num.innerHTML="2"
+        }
+        function getThree(params) {
+            num.innerHTML="3"
+        }
+        function getFour(params) {
+            num.innerHTML="4"
+        }
+        function getFive(params) {
+            num.innerHTML="5"
+        }
+
+        //EVENT-3
+        let inp1=document.getElementById("inp1")
+        let inp2=document.getElementById("inp2")
+         function getSubmit(params) {
+            if ((inp1.value=="shree" || inp1.value=="SHREE") && inp2.value=="shree123@gmail.com") {
+                alert("Your form is successfully submitted!!!")
+            }
+            else{
+                alert("Invalid input!!!")
+            }
+         }
+
+        //EVENT-4
+        let ele1=document.getElementById("box")
+        function getOver(params) {
+            ele1.style.backgroundImage="url('summer-1458129_640.jpg')"
+        }
+        function getOut(params) {
+            ele1.style.backgroundImage="url('winter-landscape-2995987_640.jpg')"
+        }
+
+        //EVENT-5
+        let ele2=document.getElementsByClassName("box1")
+        function getUp(params) {
+            ele2[0].style.backgroundColor="lightpink"
+        }
+        function getDown(params) {
+            ele2[0].style.backgroundColor="skyblue"
+        }
+
+        //EVENT-6
+        let input1=document.getElementById("input1")
+        function getBlur(params) {
+            input1.value=input1.value.toUpperCase()
+            input1.style.textAlign="center"
+            input1.style.backgroundColor="crimson"
+            input1.style.height="100px"
+            input1.style.border="none"
+            input1.style.boxShadow="0px 0px 10px gray"
+        }
+
+        //EVENT-7
+        let ele3=document.getElementById("input2")
+        function getFocus(params) {
+        ele3.style.backgroundColor="skyblue"
+        ele3.style.textAlign="center"
+        }
+
+        //EVENT-8
+        let ele4=document.getElementById("para")
+        function getCopy(params) {
+            alert("Your text is successfully copied!!!")
+        }
+        
+    </script>
+</body>
+</html>
